@@ -33,6 +33,10 @@ class AuthenticationLogController extends Controller {
         return $this->successResponse($this->authenticationLogService->obtainLogs());
     }
 
+    public function add(Request $request) {
+        return $this->successResponse($this->authenticationLogService->createLogs($request->all(), Response::HTTP_CREATED));
+     }
+
     /**
      * Obtains and show one log
      * @return Illuminate\Http\Response
